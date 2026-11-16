@@ -1,13 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { CheckCircle2, MessageCircle, ArrowRight, Package, Clock, ShieldCheck } from "lucide-react";
+import { CheckCircle2, ArrowRight, Package, Clock, ShieldCheck } from "lucide-react";
 
-export default function CheckoutSuccessPage() {
+function SuccessContent() {
   const searchParams = useSearchParams();
-  const orderNumber = searchParams.get("orderNumber") || "GA-DEMO";
+  const orderNumber = searchParams.get("orderNumber") || "CP-DEMO";
   const total = searchParams.get("total") || "0";
 
   return (
@@ -81,3 +81,18 @@ export default function CheckoutSuccessPage() {
   );
 }
 
+export default function CheckoutSuccessPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-[80vh] bg-ivory/60 flex items-center justify-center py-16 px-4">
+          <div className="animate-pulse text-burgundy font-serif font-bold text-base">
+            Loading order confirmation...
+          </div>
+        </div>
+      }
+    >
+      <SuccessContent />
+    </Suspense>
+  );
+}
