@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --burgundy: #861b3d;
+  --wine: #64172c;
+  --blush: #fce8e5;
+  --ivory: #fff9f5;
+  --gold: #d8ad78;
+  --ink: #241616;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ivory text-ink antialiased;
+    font-family: "Inter", system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+
+  ::selection {
+    @apply bg-burgundy text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #fff9f5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #861b3d;
+    border-radius: 999px;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-burgundy px-6 py-3.5 font-medium text-white shadow-sm transition-all duration-300 hover:bg-wine hover:shadow-card active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-burgundy px-6 py-3.5 font-medium text-burgundy transition-all duration-300 hover:bg-burgundy hover:text-white active:scale-[0.98];
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3.5 font-medium text-wine transition-all duration-300 hover:brightness-105 active:scale-[0.98] shadow-sm;
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#20ba5a] hover:shadow-lg active:scale-[0.98];
+  }
+
+  .card-premium {
+    @apply rounded-2xl bg-white p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card border border-rose-100/40;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-sm text-ink placeholder:text-stone-400 focus:border-burgundy focus:outline-none focus:ring-2 focus:ring-burgundy/15 transition-all;
+  }
+}
