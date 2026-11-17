@@ -16,6 +16,25 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/products",
+        destination: "/shop",
+        permanent: true,
+      },
+      {
+        source: "/collections",
+        destination: "/shop",
+        permanent: true,
+      },
+      {
+        source: "/categories",
+        destination: "/shop",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
